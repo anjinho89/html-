@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    /* 기본 상단 바 스타일 */
+    .top-bar {
+      display: flex;
+      align-items: center; 
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .search-box {
+      width: 1580px;
+      padding: 5px;
+      font-size: 14px;
+    }
+
+    .top-right a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: white;
+      background-color: #333;
+    border-radius: 3px;}
+
+    /* 카테고리 메뉴 스타일 */
+    .category-bar {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #ddd;
+    } 
+
+    .category-bar a {
+      margin: 0 137px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+ 
+    .category-bar a:hover {
+      color: black;
+    }
+    .product-slider { display:flex;justify-content: center;flex-wrap: wrap;
+      
+      gap: 15px;
+      overflow-x: auto; overflow-y: auto;
+    }
+  
+    .product-card {
+      width: 300px;
+      font-size: 20px;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+    }
+   .discount{color:red;}
+   
+  </style>
+</head>
+<body>
+
+  <!-- 상단바 -->
+  <div class="top-bar">
+    <a href="main">
+      <div class="logo">NAMTANG</div>
+    </a>
+    <input type="text" class="search-box" placeholder="검색어를 입력하세요">
+    <div class="click"><a href="#">🔍</a></div>
+    <div class="top-right">
+    
+      <a href="#">마이페이지</a>
+      <a href="#">로그인</a>
+    </div>
+  </div>
+
+  <!-- ✅ 카테고리 영역 -->
+  <div class="category-bar">
+    <a href="#">반팔</a>
+    <a href="#">셔츠</a>
+    <a href="#">후드티</a>
+    <a href="#">바람막이</a>
+    <a href="#">긴팔</a>
+    <a href="#">청바지</a>
+  </div>
+<div class="product-slider">
+  <div class="product-card">
+    <img src=
+    "https://images.descentekorea.co.kr/product/D/O1/DO12MFTS32/1780/DO12MFTS32_BEGG_N01.JPG" >
+    <div class="product-name">반팔</div>
+    <div><span class="product-price">21,000</span> <span class="discount">50%</span></div>
+  </div>
+  <div class="product-card">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.YK_voMwlEplbhFqbNhI5cAHaHa&pid=Api&P=0&h=220" >
+    <div class="product-name">셔츠</div>
+    <div><span class="product-price">62,100</span> <span class="discount">10%</span></div>
+  </div>
+  <div class="product-card">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.8af7YgL4I2mcfE474xRMEQHaHa&pid=Api&P=0&h=220" >
+    <div class="product-name">후드티</div>
+    <div><span class="product-price">31,300</span> <span class="discount">53%</span></div>
+  </div>
+  <div class="product-card">
+    <img src="https://img.shoppingntmall.com/goods/988/12228988_h.jpg" >
+    <div class="product-name">바람막이</div>
+    <div><span class="product-price">79,200</span> <span class="discount">10%</span></div>
+  </div>
+  <div class="product-card">
+    <img src="https://tse1.mm.bing.net/th?id=OIP.keUe5vUUeijF-xwADnv9TAHaHa&pid=Api&P=0&h=220">
+    <div class="product-name">긴팔</div>
+    <div><span class="product-price">86,500</span> <span class="discount">30%</span></div>
+  </div>
+
+  <div class="product-card">
+    <img src="https://tse2.mm.bing.net/th?id=OIP.khk1aBxl5WkxAb4G7t52xQHaHz&pid=Api&P=0&h=220">
+    <div class="product-name">청바지</div>
+    <div><span class="product-price">86,500</span> <span class="discount">30%</span></div>
+    </div>
+    <div class="product-slider">
+      <div class="product-card">
+        <img src=
+        "https://images.descentekorea.co.kr/product/D/O1/DO12MFTS32/1780/DO12MFTS32_BEGG_N01.JPG" >
+        <div class="product-name">반팔</div>
+        <div><span class="product-price">21,000</span> <span class="discount">50%</span></div>
+      </div>
+      <div class="product-card">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.YK_voMwlEplbhFqbNhI5cAHaHa&pid=Api&P=0&h=220" >
+        <div class="product-name">셔츠</div>
+        <div><span class="product-price">62,100</span> <span class="discount">10%</span></div>
+      </div>
+      <div class="product-card">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.8af7YgL4I2mcfE474xRMEQHaHa&pid=Api&P=0&h=220" >
+        <div class="product-name">후드티</div>
+        <div><span class="product-price">31,300</span> <span class="discount">53%</span></div>
+      </div>
+      <div class="product-card">
+        <img src="https://img.shoppingntmall.com/goods/988/12228988_h.jpg" >
+        <div class="product-name">바람막이</div>
+        <div><span class="product-price">79,200</span> <span class="discount">10%</span></div>
+      </div>
+      <div class="product-card">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.keUe5vUUeijF-xwADnv9TAHaHa&pid=Api&P=0&h=220">
+        <div class="product-name">긴팔</div>
+        <div><span class="product-price">86,500</span> <span class="discount">30%</span></div>
+      </div>
+    
+      <div class="product-card">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.khk1aBxl5WkxAb4G7t52xQHaHz&pid=Api&P=0&h=220">
+        <div class="product-name">청바지</div>
+        <div><span class="product-price">86,500</span> <span class="discount">30%</span></div>
+        </div>
+    
+      <div class="product-slider">
+        <div class="product-card">
+          <img src=
+          "https://images.descentekorea.co.kr/product/D/O1/DO12MFTS32/1780/DO12MFTS32_BEGG_N01.JPG" >
+          <div class="product-name">반팔</div>
+          <div><span class="product-price">21,000</span> <span class="discount">50%</span></div>
+        </div>
+        <div class="product-card">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.YK_voMwlEplbhFqbNhI5cAHaHa&pid=Api&P=0&h=220" >
+          <div class="product-name">셔츠</div>
+          <div><span class="product-price">62,100</span> <span class="discount">10%</span></div>
+        </div>
+        <div class="product-card">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.8af7YgL4I2mcfE474xRMEQHaHa&pid=Api&P=0&h=220" >
+          <div class="product-name">후드티</div>
+          <div><span class="product-price">31,300</span> <span class="discount">53%</span></div>
+        </div>
+        <div class="product-card">
+          <img src="https://img.shoppingntmall.com/goods/988/12228988_h.jpg" >
+          <div class="product-name">바람막이</div>
+          <div><span class="product-price">79,200</span> <span class="discount">10%</span></div>
+        </div>
+        <div class="product-card">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.keUe5vUUeijF-xwADnv9TAHaHa&pid=Api&P=0&h=220">
+          <div class="product-name">긴팔</div>
+          <div><span class="product-price">86,500</span> <span class="discount">30%</span></div>
+        </div>
+      
+        <div class="product-card">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.khk1aBxl5WkxAb4G7t52xQHaHz&pid=Api&P=0&h=220">
+          <div class="product-name">청바지</div>
+          <div><span class="product-price">86,500</span> <span class="discount">30%</span></div>
+          </div>
+
+</body>
+</html>
+

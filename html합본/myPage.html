@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>마이페이지 | NAMTANG</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      margin-top: 60px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      gap: 10px;
+    }
+
+    nav .namtang {
+      font-weight: bold;
+      font-size: 20px;
+      margin-right: auto;
+      color: #333;
+    }
+
+    nav input[type="text"] {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+
+    nav button {
+      padding: 6px 12px;
+      margin-left: 5px;
+      border: none;
+      background-color: #222;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    nav button:hover {
+      background-color: #444;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 30px auto;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #fafafa;
+      border-right: 1px solid #ddd;
+      padding: 30px 20px;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 16px;
+    }
+
+    .sidebar ul li a:hover {
+      color: #000;
+      font-weight: bold;
+    }
+
+    .main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .main h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      position: relative;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* 쿠폰 스타일 */
+    .coupon-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .coupon-card {
+      background-color: #fff;
+      border: 1px solid #222;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .coupon-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 8px;
+    }
+
+    .coupon-meta {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .coupon-meta span {
+      background: #eee;
+      color: #222;
+      padding: 2px 8px;
+      margin-right: 5px;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+
+    .coupon-brand {
+      color: #999;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .coupon-action {
+      text-align: right;
+      margin-left: 20px;
+    }
+
+    .use-btn {
+      background-color: #000;
+      color: #fff;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .use-btn:hover {
+      background-color: #333;
+    }
+
+    .coupon-days-left {
+      font-size: 12px;
+      color: #999;
+      margin-top: 8px;
+    }
+
+    .more-btn {
+      background: none;
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      font-size: 13px;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .more-btn:hover {
+      background-color: #f2f2f2;
+    }
+
+    /* 후기, 적립금 스타일 */
+    .action-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: background-color 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background-color: #444;
+    }
+
+    .tooltip {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      margin-left: 6px;
+      color: #888;
+      font-weight: bold;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 200px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      top: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 12px;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .review-buttons {
+      margin-top: 10px;
+    }
+
+    .review-buttons button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div id="overlay" onclick="toggleMenu()"></div>
+  <span class="namtang">NAMTANG</span>
+  <input type="text" placeholder="검색어를 입력하세요">
+  <button>🔍</button>
+  <a href="mypage"><button>마이페이지</button></a>
+  <a href="login"><button>로그인</button></a>
+</nav>
+
+<div class="container">
+  <aside class="sidebar">
+    <h2>마이페이지</h2>
+    <ul>
+      <li><a href="#">주문 내역</a></li>
+      <li><a href="#">관심 상품</a></li>
+      <li><a href="#">최근 본 상품</a></li>
+      <li><a href="#">회원 정보 수정</a></li>
+      <li><a href="#">로그아웃</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <h1>환영합니다, 심민식님!</h1>
+
+    <div class="card">
+      <h3>📦 사용 가능한 쿠폰</h3>
+      <div class="coupon-list">
+        <div class="coupon-card">
+          <div class="coupon-info">
+            <div class="coupon-price">10% 할인</div>
+            <div class="coupon-meta">
+              <span>전상품</span> <span>무제한</span>
+              <div>3만원 이상 구매 시<br>2025-06-01 ~ 2025-06-30</div>
+              <div class="coupon-brand">[Brand] NAMTANG</div>
+            </div>
+          </div>
+          <div class="coupon-action">
+            <button class="use-btn">사용하러 가기</button>
+            <div class="coupon-days-left">26일 남음</div>
+          </div>
+        </div>
+
+        <div class="coupon-card">
+          <div class="coupon-info">
+            <div class="coupon-price">₩4,000 할인</div>
+            <div class="coupon-meta">
+              <span>회원 전용</span> <span>신규</span>
+              <div>첫 주문 한정<br>2025-06-01 ~ 2025-06-30</div>
+              <div class="coupon-brand">[Brand] NAMTANG</div>
+            </div>
+          </div>
+          <div class="coupon-action">
+            <button class="use-btn">사용하러 가기</button>
+            <div class="coupon-days-left">26일 남음</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align: right; margin-top: 10px;">
+        <button class="more-btn">+ 더보기</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>💰 적립금 
+        <span class="tooltip">?
+          <span class="tooltiptext">리뷰 작성, 이벤트 참여 시 적립금을 받을 수 있어요!</span>
+        </span>
+      </h3>
+      <p>총 적립금: <strong>5,000원</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>📝 내 후기</h3>
+      <p>작성한 후기: <strong>4건</strong></p>
+      <div class="review-buttons">
+        <button class="action-btn">내 후기 보기</button>
+        <button class="action-btn">후기 작성하러 가기</button>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <h3>📦 최근 주문 내역</h3>
+      <p>2025-05-10 | 남성용 코트 검정 L | <strong>배송 중</strong></p>
+      <button class="action-btn">배송 현황 보기</button>
+    </div>
+
+    
+    <div class="card">
+      <h3>👀 최근 본 상품</h3>
+      <p>와이드 팬츠 | 블랙 | L</p>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

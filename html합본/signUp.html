@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 100px;
+            text-indent: 20px;
+            font-size: 70px;
+        }
+        .box {
+            width: 600px;
+            margin: 100px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px gainsboro;
+        }
+        .log {
+            width: 80%;
+            padding: 10px;
+            margin: 8px 0;
+            margin-left: 10%;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            box-shadow: 0 2px black;
+            font-size: 16px;
+        }
+        label {
+            display: block;
+            margin-left: 10%;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .button {
+            margin-left: 30%; 
+            width: 90%;
+            padding: 10px;
+            margin: 40px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+        .button:hover {
+            background-color: #333333;
+        }
+        .button:active {
+            background-color: #555555;
+            transform: scale(0.97);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+        .checkbox-container {
+            margin-left: 10%;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .checkbox-container input {
+            margin-right: -35px;
+            vertical-align: middle;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box" id="signupbox">
+        <h1>회원가입</h1>
+        <form>
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" class="log" placeholder="이름을 입력하세요" required>
+
+            <label for="userid">아이디</label>
+            <input type="text" id="userid" name="userid" class="log" placeholder="아이디를 입력하세요" required>
+
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" class="log" placeholder="비밀번호를 입력하세요" required>
+
+            <label for="password_confirm">비밀번호 확인</label>
+            <input type="password" id="password_confirm" name="password_confirm" class="log" placeholder="비밀번호를 다시 입력하세요" required>
+
+            <label for="birthdate">생년월일</label>
+            <input type="date" id="birthdate" name="birthdate" class="log">
+
+            <label for="address">주소</label>
+            <input type="text" id="address" name="address" class="log" placeholder="주소를 입력하세요" required>
+
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" class="log" placeholder="이메일을 입력하세요">
+
+            <label for="phone">전화번호</label>
+            <input type="tel" id="phone" name="phone" class="log" placeholder="전화번호를 입력하세요" required>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms" style="display:inline;">약관에 동의합니다.</label>
+            </div>
+
+            <button type="submit" class="button" >회원가입</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: #f0f0f0;
+            }
+            h1{
+                text-align: center;
+                margin-top: 0px;
+                margin-bottom: 110px;
+                text-indent: 20px;
+                font-size: 60px;
+            }
+            .box {
+                width: 600px;             
+                margin: 100px auto;       
+                height: 550px;
+                background: white;
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 0 20px gainsboro;
+            }
+            .log{
+                width: 85%;
+                padding: 10px;
+                margin: 8px 0;
+                margin-left: 7%;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                box-shadow:  0 3px black;
+            }
+            .button{
+                margin-left: 20%;
+                width: 90%;
+                padding: 10px;
+                margin: 40px;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                background-color: black;
+                color: white;
+            }
+            .button:hover {
+            background-color: #333333; 
+            }
+            .button:active {
+                background-color: #555555; 
+                transform: scale(0.97);    
+                box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+            }
+            .google{
+                display: inline-block;
+                margin-left: 20%;
+                width: 42%;
+                padding: 10px;
+                margin: 40px;
+                border: 1px solid;
+                border-radius: 5px;
+                background-color: white;
+                margin-top: -20px;
+                color: black;
+            }
+            .kakao{
+                display: inline-block;
+                width: 42%;
+                padding: 10px;
+                border: 1px solid #3b1f06;
+                border-radius: 5px;
+                background-color: #f9e000;
+                margin-top: -20px;
+                color: #3b1f06;
+                margin-left: -8px;
+            }
+
+            .icon-small {
+                width: 20px;
+                height: 20px;
+                margin-left:-50px;
+                vertical-align: middle;
+                margin-right: 40px;
+
+            }
+            .toggle {
+                text-align: center;
+                margin-top: -18px;
+                text-indent: 20px;
+                cursor: pointer;
+                color: black;
+            }
+            .google:hover {
+                background-color: #f1f1f1;
+                border-color: #999;
+            }
+            .google:active {
+                background-color: #e0e0e0;
+                box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+                transform: scale(0.98);
+            }
+            .google:hover img{
+                filter: brightness(0.93);
+            }
+            .google:active img.icon-small {
+                filter: brightness(0.87);
+                transform: scale(0.95);
+            }
+
+
+            .kakao:hover {
+                background-color: #e6d500; 
+                border-color: #2f1604; 
+            }
+            .kakao:active {
+                background-color: #c4b300;
+                border-color: #231100;
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+                transform: scale(0.97);
+            }
+            .kakao:hover img {
+                 filter: brightness(0.93);
+            }
+            .kakao:active img {
+                filter: brightness(0.77);
+                transform: scale(0.95);
+            }
+            a{
+                text-decoration: none;
+                margin-top: 20px;
+                flex-wrap: nowrap;
+            }   
+        </style>
+
+    </head>
+    <body>
+        <div class="box" id="loginbox">
+            <h1>
+                로그인
+            </h1>
+            <form>
+                <input type="text" placeholder="아이디" class="log">
+                <input type="password" placeholder="비밀번호" class="log">
+                <div style="margin-left: 10%; margin-top: 10px; margin-bottom: -10px;" >
+                <input type="checkbox" id="remember" name="remember" style="margin-left: -20px;">
+                <label for="remember">아이디 기억하기</label>
+                </div>
+                <button type="submit" class="button">로그인</button>
+                <button type="submit" class="google">
+                    <img src="구글.png" alt="icon" class="icon-small">
+                    <span style="color: #4285F4;">G</span>
+                    <span style="color: #EA4335;">o</span>
+                    <span style="color: #FBBC05;">o</span>
+                    <span style="color: #4285F4;">g</span>
+                    <span style="color: #34A853;">l</span>
+                    <span style="color: #EA4335;">e</span>
+                    로그인
+                
+                </button>
+                <button type="submit" class="kakao">
+                    <img src="카카오.png" alt="icon" class="icon-small">
+                    카카오 로그인
+                </button>
+          <div style="display: flex; justify-content: center; gap: 110px; margin-top: 0px;">
+                <a href="회원가입.html" class="toggle">회원가입하기</a>    
+                <a href="아이디찾기.html" class="toggle">아이디 찾기</a>
+                <a href="비밀번호찾기.html" class="toggle">비밀번호 찾기</a>
+                </div>
+
+            </form>
+        </div>
+    </body>
+</html>

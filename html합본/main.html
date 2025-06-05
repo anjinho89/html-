@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>NAMTANG</title>
+
+    <style>
+
+        #hamburger {
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        
+
+       
+        #sideMenu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 250px;
+            height: 100%;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+            padding: 20px;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+            .user-info img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+
+        .username {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        hr {
+            margin: 15px 0;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+
+        .user-actions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            .user-actions li {
+                padding: 8px 0;
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+        .categories .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .categories span {
+            background-color: #f5f5f5;
+        
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            flex: 0 0 48%;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .namtang {
+            font-size:25px;
+
+        }
+      
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: none;
+            z-index: 999;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .slider {
+            
+            
+            width: 90%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #ccc;
+            justify-content: center;
+            align-items: center;
+            margin-left:100px;
+            margin-top: 50px;
+        }
+
+        .slider {
+            display: flex;
+            width: 62%;
+            height: 500px;
+            position: relative;
+            margin: 40px auto;
+            overflow: hidden;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            width:100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+            
+
+            .slide:nth-child(1) {
+                background: white;
+                color: white;
+                height:500px;
+            }
+
+            .slide:nth-child(2) {
+                background: white;
+                color: white;
+                height:500px;
+             
+            }
+
+            .slide:nth-child(3) {
+                background: white;
+                color: white;
+                height:500px;
+                margin-bottom:200px;
+              
+            }
+
+            
+   
+
+        .dots {
+            text-align: center;
+            padding: 15px 0;
+            
+        }
+
+        .dot {
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            margin: 0 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            .dot.active {
+                background-color: #333;
+            }
+
+        
+
+
+        .baram {
+            width: 200px;
+            height: 200px;
+            
+            object-position: center; 
+            display: block;
+            border-radius: 100px; 
+            box-shadow: 0 3px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border:solid 3px;
+        }
+        .baram img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            object-position: center center; 
+            display: block;
+        }
+        
+        header {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+	
+        }
+
+            nav input[type="text"] {
+                flex: 1;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            nav button {
+                background-color: black;
+                border: none;
+                padding: 8px 12px;
+                cursor: pointer;
+                font-size: 20px;	
+	color : white;
+	border-radius : 8px;
+            }
+
+      
+        main h1 {
+            text-align: center;
+            font-size: 32px;
+            margin: 40px 0 20px;
+        }
+
+        main > div span {
+            font-size: 20px;
+            margin: 0 4px;
+            color: #aaa;
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+        }
+
+      
+        section {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 200px;
+            text-align: center;
+        }
+
+            section div {
+                flex: 1;
+                margin: 0 10px;
+            }
+
+                section div div {
+                    font-size: 32px;
+                    margin-bottom: 10px;
+                }
+
+        footer {
+            background-color: #f8f8f8;
+            padding: 30px 20px;
+            font-size: 14px;
+            color: #555;
+            border-top: 1px solid #ddd;
+        }
+
+            footer div {
+                margin-bottom: 15px;
+            }
+
+            footer a {
+                color: #555;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+
+        figure {
+            width: 200px;
+            margin: 20px auto;
+            text-align: center; 
+        }
+
+        figcaption {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4;
+            text-align: center; 
+            display: block; 
+        }
+
+        a {
+            border: none;
+            outline: none;
+            text-decoration: none;
+            color:black;
+        }
+
+            a:focus,
+            a:active {
+                outline: 2px solid black;
+                border: none;
+            }
+
+            a img {
+                border: none;
+                outline-color: black;
+            }
+
+        .side-banner {
+            position: absolute;
+            top: 200px;
+            width: 130px;
+            z-index: 1000;
+        }
+
+
+        .left-banner {
+            left: 0;
+        }
+
+
+        .right-banner {
+            right: 100px;
+        }
+
+
+        .side-banner img {
+            width: 250px;
+            height: 600px;
+        }
+           
+    </style>
+
+
+</head>
+<body>
+
+
+    <header>
+        <nav>
+
+            <div id="hamburger" onclick="toggleMenu()">☰</div>
+            <div id="sideMenu" style="position: fixed; top: 0; left: -300px; width: 250px; height: 100%; background: #fff; box-shadow: 2px 0 5px rgba(0,0,0,0.3); transition: left 0.3s ease; z-index: 1001; padding: 20px;">
+                
+                
+                     <div class="user-info">
+                         <img src="회원아이콘.png" alt="회원 아이콘">
+                            <div class="username">홍길동님</div>
+                       </div>
+
+                <hr>
+
+ 
+                        <ul class="user-actions">
+                             <li><a href="wish"><button>❤️ 찜목록 </button></a></li>
+                             <li><a href="cart.html"><button>🛒 장바구니</button></a></li>
+                             <li><a href="buy"><button>📦 구매목록</button></a></li>
+                         </ul>
+
+                <hr>
+
+ 
+                    <div class="categ   ories">
+                     <div class="row">
+                          <span>반팔</span>
+                          <span>셔츠</span>
+                      </div>
+                     <div class="row">
+                          <span>후드티</span>
+                          <span>바람막이</span>
+                        </div>
+                        <div class="row">
+                          <span>긴팔</span>
+                      <span>청바지</span>
+                    </div>
+                   
+                  </div>
+                </div>
+            
+            <div id="overlay" onclick="toggleMenu()"></div>
+
+	<a href="main.html"> 
+		<span class="namtang">NAMTANG</span>
+	</a>
+            
+            <input type="text" placeholder="검색어를 입력하세요">
+            <button>🔍</button>
+            <a href="myPage.html">
+                <button>마이페이지</button>
+            </a>
+            <a href="login.html"><button>로그인</button></a>
+        </nav>
+    </header>
+    <!-- 왼쪽 배너 -->
+    <div class="side-banner left-banner">
+        <a href="#"><img src="배너1.jpg" alt="왼쪽 배너"></a>
+    </div>
+
+    <!-- 오른쪽 배너 -->
+    <div class="side-banner right-banner">
+        <a href="#"><img src="배너1.jpg" alt="오른쪽 배너"></a>
+    </div>
+
+    <main>
+        <h1>NAM TANG</h1>
+
+
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <a href="ddd.com">
+                        <img src="슬라이드1.jpg" />
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="dddd.com">
+                        <img src="슬라이드5.jpg" />
+                    </a>
+                </div>
+                <div class="slide">
+                    <a href="dddddd.com">
+                        <img src="슬라이드3.jpg" />
+                    </a>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+        <div class="dots">
+            <span class="dot" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+           
+        </div>
+
+
+        <section>
+            <div>
+
+                <figure>
+
+                    <a href="바람막이.jpg">
+                        <img src="바람막이.jpg" class="baram" />
+                    </a>
+                    <figcaption>바람막이</figcaption>
+                </figure>
+            </div>
+
+
+            <div>
+
+                <figure>
+                    <a href="반바지.jpg">
+                        <img src="반바지.jpg" class="baram" />
+                    </a>
+                    <figcaption>반바지</figcaption>
+                </figure>
+            </div>
+
+            <div>
+
+                <figure>
+                    <a href="셔츠.jpg">
+                        <img src="셔츠.jpg" class="baram" />
+                    </a>
+                    <figcaption>셔츠</figcaption>
+                </figure>
+            </div>
+
+            <div>
+
+                <figure>
+                    <a href="반팔.jpg">
+                        <img src="반팔.jpg" class="baram" />
+                    </a>
+                    <figcaption>반팔</figcaption>
+                </figure>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div>
+            <p><strong>고객센터</strong></p>
+            <p>전화: 1234-5678</p>
+            <p>이메일: help@namtang.com</p>
+        </div>
+        <div>
+            <p><strong>회사 정보</strong></p>
+            <p>상호: 남탕(NAMTANG)</p>
+            <p>사업자등록번호: 123-45-67890</p>
+            <p>주소: 서울특별시 어딘가 123</p>
+        </div>
+        <div>
+            <p><strong>약관 및 정책</strong></p>
+            <p><a href="#">이용약관</a> | <a href="#">개인정보처리방침</a></p>
+        </div>
+        <div>
+            <p>© NAMTANG Corp. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const dots = document.querySelectorAll('.dot');
+        const slideCount = dots.length;
+
+        let currentIndex = 0;
+        let intervalId = null;
+        let isPaused = false;
+
+        function goToSlide(index) {
+            if (index < 0) index = slideCount - 1;
+            if (index >= slideCount) index = 0;
+
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+
+ 
+        function startAutoSlide() {
+            intervalId = setInterval(() => {
+                if (isPaused) return; 
+                goToSlide(currentIndex + 1);
+                isPaused = true;
+                setTimeout(() => {
+                    isPaused = false;
+                }, 2000);
+            }, 5000);
+        }
+
+    
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                goToSlide(parseInt(dot.dataset.index));
+             
+                resetAutoSlide();
+            });
+        });
+
+        function resetAutoSlide() {
+            clearInterval(intervalId);
+            isPaused = false;
+            startAutoSlide();
+        }
+
+       
+        window.addEventListener('DOMContentLoaded', () => {
+            goToSlide(0);
+            startAutoSlide();
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            function toggleMenu() {
+                const menu = document.getElementById('sideMenu');
+                const overlay = document.getElementById('overlay');
+                if (menu.style.left === '0px') {
+                    menu.style.left = '-300px';
+                    overlay.style.display = 'none';
+                } else {
+                    menu.style.left = '0px';
+                    overlay.style.display = 'block';
+                }
+            }
+
+           
+            window.toggleMenu = toggleMenu;
+        });
+
+        const menu = document.getElementById('sideMenu');   
+    </script>
+
+
+
+</body>
+</html>

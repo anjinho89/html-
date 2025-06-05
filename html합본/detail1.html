@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>NAMTANG</title>
+  <style>
+    nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  nav input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  nav button {
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  main h1 {
+    text-align: center;
+    font-size: 32px;
+    margin: 40px 0 20px;
+  }
+
+  main > div span {
+    font-size: 20px;
+    margin: 0 4px;
+    color: #aaa;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+  }
+
+    .cloth {
+      display: left;
+      margin-left: 100px;
+      margin-top: 30px;
+    }
+
+    .cloth2 {
+      position: absolute;
+      top: 200px;
+      left: 450px
+    }
+
+    .clothes {
+      float: right;
+      margin-top: 50px;
+      margin-right: 200px;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      padding: 10px 60px;
+    }
+
+    .clothes {
+      max-width: 500px;
+      height: auto;
+      max-width: 400px;
+    }
+
+    .clothes p {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .clothes h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .clothes h2 {
+      font-size: 20px;
+      color: black;
+      margin: 5px 0 20px;
+    }
+
+    .clothes h4 {
+      margin: 20px 0 5px;
+      font-size: 14px;
+    }
+
+    .clothes select,
+    .clothes input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .cart,
+    .buy {
+      width: 100%;
+      height: 45px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .cart {
+      background-color: white;
+      border: 1px solid black;
+    }
+
+    .buy {
+      background-color: black;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div id="overlay" onclick="toggleMenu()"></div>
+    <span class="namtang">NAMTANG</span>
+    <input type="text" placeholder="검색어를 입력하세요">
+    <button>🔍</button>
+    <a href="mypage"><button>마이페이지</button></a>
+    <a href="login"><button>로그인</button></a>
+  </nav>
+
+  <div class="product">
+    <img src="cloth.PNG" alt="상품 이미지" class="cloth">
+    <img src="cloth2.png" alt="상품 이미지" class="cloth2">
+
+    <div class="clothes">
+      <p>반소매 티셔츠</p>
+      <h1>반팔 옷</h1>
+      <h2>62,000원</h2>
+
+      <h4>색상을 선택하세요:</h4>
+      <select>
+        <option>검은색</option>
+        <option>흰색</option>
+        <option>빨간색</option>
+        <option>파란색</option>
+      </select>
+
+      <h4>사이즈를 선택하세요:</h4>
+      <select>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select>
+
+      <h4>수량을 선택하세요:</h4>
+      <input type="number" value="1" min="1" max="10">
+
+      <button class="cart" onclick="alert('장바구니에 추가되었습니다.')">장바구니</button>
+      <button class="buy" onclick="alert('결제 페이지로 이동합니다.')">구매하기</button>
+    </div>
+  </div>
+
+</body>
+</html>

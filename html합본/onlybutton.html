@@ -1,0 +1,36 @@
+  <style>
+        .cart_button {
+            position: fixed;
+            bottom: 30px;
+            right: 5%;
+            width: 80px;
+            height: 80px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cart_button:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        .cart_button:active {
+            background-color: #555;
+            transform: scale(0.95);
+        }
+
+        .cart-icon {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <body>
+        <a href="cart.html" class="cart_button">
+        <img src="cart.png" alt="장바구니" class="cart-icon">
+        </a>
+    </body>

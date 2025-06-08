@@ -16,7 +16,7 @@
         .box {
             width: 500px;
             margin: 100px auto;
-            height: 500px;
+            height: 600px;
             background: white;
             padding: 30px;
             border-radius: 20px;
@@ -24,14 +24,15 @@
         }
 
         .log {
-            width: 85%;
+            width: 60%;
             margin-left: 7%;
             margin-bottom: 40px;
-            width: 60%;
             padding: 10px;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            box-shadow: 0 3px black;
+            border: 2px solid black;    
+            border-radius: 7px;
+            background-color: white;    
+            color: black;               
+            box-shadow: none;           
         }
         .ij {
             padding: 10px 15px;
@@ -95,13 +96,47 @@
                 <input type="tel" placeholder="전화번호를 입력하세요" class="log" required>
                 <button type="button" class="ij">인증하기</button>
             </div>
+           <div id="auth-section" style="display: none; align-items: center;">
+            <input type="text" placeholder="인증번호 입력" class="log" style="width: 50%; margin-bottom:0;">
+            <div id="timer" style="color: red; font-weight: bold; margin-left: 20px;">05:00</div>
+            </div>
             <button type="submit" class="find">아이디 찾기</button>
             <div style="display: flex; justify-content: center; gap: 70px; margin-top: 0px;">
-                <a href="회원가입.html" class="toggle">회원가입하기</a>
-                <a href="로그인.html" class="toggle">로그인하기</a>      
-                <a href="비밀번호찾기.html" class="toggle">비밀번호 찾기</a>
+                <a href="signUp.html" class="toggle">회원가입하기</a>
+                <a href="login.html" class="toggle">로그인하기</a>      
+                <a href="findPW.html" class="toggle">비밀번호 찾기</a>
             </div>
+            
         </form>
     </div>
+    <script>
+    let countdown;
+
+    function startTimer(duration) {
+        let timer = duration, minutes, seconds;
+        const timerDisplay = document.getElementById('timer');
+        clearInterval(countdown);
+        countdown = setInterval(() => {
+            minutes = String(Math.floor(timer / 60)).padStart(2, '0');
+            seconds = String(timer % 60).padStart(2, '0');
+            timerDisplay.textContent = `${minutes}:${seconds}`;
+
+            if (--timer < 0) {
+                clearInterval(countdown);
+                timerDisplay.textContent = "시간 초과";
+            }
+        }, 1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const authSection = document.getElementById('auth-section');
+        const authBtn = document.querySelector('.ij');
+
+        authBtn.addEventListener('click', function () {
+            authSection.style.display = 'flex';
+            startTimer(300); // 5분
+        });
+    });
+</script>
 </body>
 </html>
